@@ -1,17 +1,20 @@
 package us.juggl.reactive.vertx;
 
-import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
 
 /**
  *
+ * @author <a href="https://github.com/InfoSec812">Deven Phillips</a>
  */
-public class Main extends AbstractVerticle {
-
-  @Override
-  public void start() throws Exception {
-    vertx.eventBus().consumer("myapp.events.hello", msg -> {
-        System.out.println("Got a hello message");
-    });
-    vertx.deployVerticle("webserver.js");
-  }
+public class Main {
+    public static void main(String[] args) {
+        Vertx vertx = Vertx.vertx();
+        
+        vertx.deployVerticle(new VertxMain());
+        
+        SEThread myThread = new SEThread(vertx);
+        
+        System.out.println("Starting JavaSE Thread");
+        (new Thread(myThread)).start();
+    }
 }

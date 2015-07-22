@@ -143,6 +143,7 @@
           <mainClass>io.vertx.core.Starter</mainClass>
           <additionalClasspathElements>
             <additionalClasspathElement>${basedir}/src/main/java</additionalClasspathElement>
+            <additionalClasspathElement>${basedir}/src/main/resources</additionalClasspathElement>
           </additionalClasspathElements>
           <systemProperties>
             <systemProperty>
@@ -156,7 +157,7 @@
           </systemProperties>
           <arguments>
             <argument>run</argument>
-            <argument>us/juggl/reactive/vertx/Main.java</argument>
+            <argument>us/juggl/reactive/vertx/VertxMain.java</argument>
             <!--                  <argument>-cluster</argument>
             <argument>-cluster-host</argument>
             <argument>127.0.0.1</argument>-->
